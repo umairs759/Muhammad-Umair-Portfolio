@@ -11,7 +11,7 @@ A modern, high-performance, dark-themed personal portfolio built from scratch wi
 ## 🌐 Live Preview
 
 Explore the live portfolio here:  
-👉 **[https://umairghaffar759.github.io/Muhammad-Umair-Portfolio/](https://umairghaffar759.github.io/Muhammad-Umair-Portfolio/)**
+👉 **[https://umairs759.github.io/Muhammad-Umair-Portfolio/](https://umairghaffar759.github.io/Muhammad-Umair-Portfolio/)**
 
 ---
 
