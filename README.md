@@ -1,6 +1,6 @@
 # 🛡️ Muhammad Umair — Cyber-Executive Portfolio
 
-[![Live Demo](https://img.shields.io/badge/Live-Portfolio_Website-4361EE?style=for-the-badge&logo=githubpages&logoColor=white)](https://umairghaffar759.github.io/Muhammad-Umair-Portfolio/)
+[![Live Demo](https://img.shields.io/badge/Live-Portfolio_Website-4361EE?style=for-the-badge&logo=githubpages&logoColor=white)](https://umairs759.github.io/Muhammad-Umair-Portfolio/)
 [![Tech Stack](https://img.shields.io/badge/Stack-HTML5_|_CSS3_|_JavaScript-07090F?style=for-the-badge&logo=javascript&logoColor=4CC9F0)](#-built-with)
 [![License: MIT](https://img.shields.io/badge/License-MIT-4ADE80?style=for-the-badge)](#-license)
 
