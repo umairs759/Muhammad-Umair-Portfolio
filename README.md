@@ -162,6 +162,7 @@ Everything is contained within `index.html` — styles and scripts are inlined f
 ```bash
 git clone https://github.com/umairs759/Muhammad-Umair-Portfolio.git
 cd Muhammad-Umair-Portfolio
+```
 
 Then double-click index.html, or drag it into any modern browser.
 Option 2 — Local live server (recommended for development)
