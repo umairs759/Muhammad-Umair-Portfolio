@@ -178,9 +178,20 @@ Install the Live Server extension, right-click index.html, and choose "Open with
 Using Node.js:
 npx serve .
 
-🎨 Customisation Guide
+### 📂 Project Structure
+Muhammad-Umair-Portfolio/
+│
+├── index.html              # Single-file portfolio (HTML + CSS + JS inline)
+├── Portfliopic.png         # Hero portrait image
+├── README.md               # This file
+└── LICENSE                 # MIT License
+
+Everything is contained within index.html — styles and scripts are inlined for zero-latency first paint and simple deployment.
+
+## 🎨 Customisation Guide
 
 Want to adapt this portfolio for yourself? Everything you need is in index.html.
+
 What to change	Where to look
 Colour palette	:root block at the top of the <style> tag — edit --acid, --ink, --paper
 Typography	--f-display, --f-sans, --f-mono variables
@@ -192,7 +203,7 @@ Social links	Hero CTA buttons and .c-socials block in the contact section
 Hero portrait	Replace Portfliopic.png with your own image (keep the same filename, or update the src)
 SEO metadata	<head> — <title>, <meta name="description">, OpenGraph, and Twitter tags
 
-⚡ Performance & Accessibility
+## ⚡ Performance & Accessibility
 
     No external JS libraries — total script payload is under 12 KB uncompressed.
 
@@ -204,7 +215,8 @@ SEO metadata	<head> — <title>, <meta name="description">, OpenGraph, and Twitt
 
     Accessible by default — keyboard navigable, screen-reader tested, and compliant with prefers-reduced-motion.
 
-📬 Contact & Connect
+## 📬 Contact & Connect
+
 <div align="center">
 
 Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automation Engineer
@@ -216,7 +228,7 @@ https://img.shields.io/badge/GitHub-@umairs759-08080A?style=for-the-badge&logo=g
 https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white
 </div>
 
-📄 License
+## 📄 License
 
 This project is open-source and available under the MIT License. See the LICENSE file for details.
 
