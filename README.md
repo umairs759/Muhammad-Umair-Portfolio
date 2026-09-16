@@ -198,15 +198,11 @@ Want to adapt this portfolio for yourself? Everything you need is in `index.html
 
 ## ⚡ Performance & Accessibility
 
-    No external JS libraries — total script payload is under 12 KB uncompressed.
-
-    No render-blocking resources — fonts load with display=swap; icons are inline SVG.
-
-    Optimised assets — the hero image uses loading="eager" and decoding="async".
-
-    Lighthouse-friendly — semantic markup, adequate colour contrast, and no layout shift.
-
-    Accessible by default — keyboard navigable, screen-reader tested, and compliant with prefers-reduced-motion.
+- **No external JS libraries** — total script payload is under 12 KB uncompressed.
+- **No render-blocking resources** — fonts load with `display=swap`; icons are inline SVG.
+- **Optimised assets** — the hero image uses `loading="eager"` and `decoding="async"`.
+- **Lighthouse-friendly** — semantic markup, adequate colour contrast, and no layout shift.
+- **Accessible by default** — keyboard navigable, screen-reader tested, and compliant with `prefers-reduced-motion`.
 
 ## 📬 Contact & Connect
 
