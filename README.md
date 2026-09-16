@@ -142,3 +142,89 @@ Rebuilt content and metadata architecture for a sports media channel — restruc
 ---
 
 ## 📂 Project Structure
+
+Muhammad-Umair-Portfolio/
+│
+├── index.html # Single-file portfolio (HTML + CSS + JS inline)
+├── Portfliopic.png # Hero portrait image
+├── README.md # This file
+└── LICENSE # MIT License
+
+
+Everything is contained within `index.html` — styles and scripts are inlined for zero-latency first paint and simple deployment.
+
+---
+
+## 💻 Local Setup
+
+### Option 1 — Direct open (fastest)
+
+```bash
+git clone https://github.com/umairs759/Muhammad-Umair-Portfolio.git
+cd Muhammad-Umair-Portfolio
+
+Then double-click index.html, or drag it into any modern browser.
+Option 2 — Local live server (recommended for development)
+
+Using Python 3:
+
+python3 -m http.server 8000
+
+Then open http://localhost:8000.
+
+Using VS Code:
+Install the Live Server extension, right-click index.html, and choose "Open with Live Server".
+
+Using Node.js:
+
+npx serve .
+
+🎨 Customisation Guide
+
+Want to adapt this portfolio for yourself? Everything you need is in index.html.
+What to change	Where to look
+Colour palette	:root block at the top of the <style> tag — edit --acid, --ink, --paper
+Typography	--f-display, --f-sans, --f-mono variables
+Personal info (name, role, bio)	Hero section and <section id="about">
+Projects	<section id="work"> — each <article class="project"> block
+Achievements	<section id="recognition"> — each .tl-item block
+Email address	Search for umairghaffar759@gmail.com (appears in form action, mailto links, and JSON-LD)
+Social links	Hero CTA buttons and .c-socials block in the contact section
+Hero portrait	Replace Portfliopic.png with your own image (keep the same filename, or update the src)
+SEO metadata	<head> — <title>, <meta name="description">, OpenGraph, and Twitter tags
+
+
+⚡ Performance & Accessibility
+
+    No external JS libraries — total script payload is under 12 KB uncompressed.
+
+    No render-blocking resources — fonts load with display=swap; icons are inline SVG.
+
+    Optimised assets — the hero image uses loading="eager" and decoding="async".
+
+    Lighthouse-friendly — semantic markup, adequate colour contrast, and no layout shift.
+
+    Accessible by default — keyboard navigable, screen-reader tested, and compliant with prefers-reduced-motion.
+
+📬 Contact & Connect
+<div align="center">
+
+Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automation Engineer
+
+📍 Lahore, Pakistan
+
+https://img.shields.io/badge/Email-umairghaffar759@gmail.com-D6FF4A?style=for-the-badge&logo=gmail&logoColor=08080A
+https://img.shields.io/badge/GitHub-@umairs759-08080A?style=for-the-badge&logo=github&logoColor=D6FF4A
+https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white
+</div>
+📄 License
+
+This project is open-source and available under the MIT License. See the LICENSE file for details.
+
+You are free to use this portfolio as inspiration or a starting template — a credit or star on the repository is always appreciated but never required.
+<div align="center">
+
+⭐ If you found this portfolio useful or inspiring, consider giving it a star — it helps others discover it.
+
+Made with an obsession for detail in Lahore, Pakistan.
+</div> ```
