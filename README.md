@@ -166,20 +166,19 @@ cd Muhammad-Umair-Portfolio
 Then double-click index.html, or drag it into any modern browser.
 Option 2 — Local live server (recommended for development)
 
-###Using Python 3:
-
+Using Python 3:
 python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-###Using VS Code:
+Using VS Code:
+
 Install the Live Server extension, right-click index.html, and choose "Open with Live Server".
 
 Using Node.js:
-
 npx serve .
 
-##🎨 Customisation Guide
+🎨 Customisation Guide
 
 Want to adapt this portfolio for yourself? Everything you need is in index.html.
 What to change	Where to look
@@ -193,8 +192,7 @@ Social links	Hero CTA buttons and .c-socials block in the contact section
 Hero portrait	Replace Portfliopic.png with your own image (keep the same filename, or update the src)
 SEO metadata	<head> — <title>, <meta name="description">, OpenGraph, and Twitter tags
 
-
-##⚡ Performance & Accessibility
+⚡ Performance & Accessibility
 
     No external JS libraries — total script payload is under 12 KB uncompressed.
 
@@ -206,10 +204,10 @@ SEO metadata	<head> — <title>, <meta name="description">, OpenGraph, and Twitt
 
     Accessible by default — keyboard navigable, screen-reader tested, and compliant with prefers-reduced-motion.
 
-##📬 Contact & Connect
+📬 Contact & Connect
 <div align="center">
 
-###Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automation Engineer
+Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automation Engineer
 
 📍 Lahore, Pakistan
 
@@ -217,14 +215,16 @@ https://img.shields.io/badge/Email-umairghaffar759@gmail.com-D6FF4A?style=for-th
 https://img.shields.io/badge/GitHub-@umairs759-08080A?style=for-the-badge&logo=github&logoColor=D6FF4A
 https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white
 </div>
-##📄 License
+
+📄 License
 
 This project is open-source and available under the MIT License. See the LICENSE file for details.
 
 You are free to use this portfolio as inspiration or a starting template — a credit or star on the repository is always appreciated but never required.
+
 <div align="center">
 
-###⭐ If you found this portfolio useful or inspiring, consider giving it a star — it helps others discover it.
+⭐ If you found this portfolio useful or inspiring, consider giving it a star — it helps others discover it.
 
 Made with an obsession for detail in Lahore, Pakistan.
 </div> ```
