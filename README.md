@@ -224,10 +224,6 @@ Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automatio
 
 📍 Lahore, Pakistan
 
-https://img.shields.io/badge/Email-umairghaffar759@gmail.com-D6FF4A?style=for-the-badge&logo=gmail&logoColor=08080A
-https://img.shields.io/badge/GitHub-@umairs759-08080A?style=for-the-badge&logo=github&logoColor=D6FF4A
-https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white
-</div>
 
 ## 📄 License
 
