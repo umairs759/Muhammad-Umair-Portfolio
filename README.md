@@ -143,12 +143,16 @@ Rebuilt content and metadata architecture for a sports media channel — restruc
 
 ## 📂 Project Structure
 
+```
 Muhammad-Umair-Portfolio/
 │
-├── index.html # Single-file portfolio (HTML + CSS + JS inline)
-├── Portfliopic.png # Hero portrait image
-├── README.md # This file
-└── LICENSE # MIT License
+├── index.html              # Single-file portfolio (HTML + CSS + JS inline)
+├── Portfliopic.png         # Hero portrait image
+├── README.md               # This file
+└── LICENSE                 # MIT License
+```
+
+Everything is contained within `index.html` — styles and scripts are inlined for zero-latency first paint and simple deployment.
 
 
 Everything is contained within `index.html` — styles and scripts are inlined for zero-latency first paint and simple deployment.
