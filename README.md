@@ -227,12 +227,14 @@ Muhammad Umair — Cyber Security Specialist · Python Developer · AI Automatio
 
 # 📄 License
 
+<div align="center">
+    
 This project is open-source and available under the MIT License. See the LICENSE file for details.
 
 You are free to use this portfolio as inspiration or a starting template — a credit or star on the repository is always appreciated but never required.
 
 
-⭐ If you found this portfolio useful or inspiring, consider giving it a star — it helps others discover it.
+### ⭐ If you found this portfolio useful or inspiring, consider giving it a star — it helps others discover it.
 
 Made with an obsession for detail in Lahore, Pakistan.
 </div> ```
