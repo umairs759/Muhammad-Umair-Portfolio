@@ -214,7 +214,7 @@ Want to adapt this portfolio for yourself? Everything you need is in `index.html
 
 [![Email](https://img.shields.io/badge/Email-umairghaffar759@gmail.com-D6FF4A?style=for-the-badge&logo=gmail&logoColor=08080A)](mailto:umairghaffar759@gmail.com)
 [![GitHub](https://img.shields.io/badge/GitHub-@umairs759-08080A?style=for-the-badge&logo=github&logoColor=D6FF4A)](https://github.com/umairs759)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/umairghaffar759)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-umairghaffar759-4361EE?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/umairs759)
 
 </div>
 
