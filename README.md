@@ -66,7 +66,7 @@ Deployed automatically via GitHub Pages from the `main` branch.
 - **Count-Up Statistics** — animated metrics triggered on scroll into viewport.
 - **1-Click Email Copy** — clipboard API with a graceful fallback for older browsers and a feedback toast.
 - **Working Contact Form** — posts via FormSubmit AJAX directly to the owner's inbox, no backend required.
-- 
+  
 
 ### 🔍 SEO & Accessibility
 - **Semantic HTML5 landmarks** — `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
