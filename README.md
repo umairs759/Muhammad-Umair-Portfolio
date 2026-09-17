@@ -56,6 +56,7 @@ Deployed automatically via GitHub Pages from the `main` branch.
 - **Dark-first Aesthetic** — layered greys, acid-lime accent, film-grain texture overlay, and blurred radial glows.
 - **Print Stylesheet** — the portfolio converts to a clean, readable, ink-friendly layout when printed or saved as PDF.
 
+
 ### ⚡ Interactive Dynamic UI
 - **Custom Cursor** — dual-layer dot + ring cursor with magnetic hover states (auto-disabled on touch devices).
 - **Scroll Progress Bar** — thin acid-lime indicator at the top of the viewport.
@@ -65,6 +66,7 @@ Deployed automatically via GitHub Pages from the `main` branch.
 - **Count-Up Statistics** — animated metrics triggered on scroll into viewport.
 - **1-Click Email Copy** — clipboard API with a graceful fallback for older browsers and a feedback toast.
 - **Working Contact Form** — posts via FormSubmit AJAX directly to the owner's inbox, no backend required.
+- 
 
 ### 🔍 SEO & Accessibility
 - **Semantic HTML5 landmarks** — `<header>`, `<nav>`, `<main>`, `<section>`, `<article>`, `<footer>`.
