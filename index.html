@@ -928,6 +928,63 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 .cap:hover .cap-tags span{border-color:rgba(8,8,10,.28)}
 .cap:hover .cap-desc{color:rgba(8,8,10,.72)}
 
+/* --- ENHANCED PRODUCT UI MOCKUPS --- */
+.ui-chat-head{display:flex;align-items:center;gap:.6rem;padding-bottom:.65rem;border-bottom:1px solid var(--line);margin-bottom:.7rem}
+.ui-avatar{width:26px;height:26px;border-radius:50%;background:#23232C;display:grid;place-items:center;font-size:.65rem;color:var(--acid)}
+.ui-chat-meta b{display:block;font-size:.68rem;color:var(--paper);font-weight:500;line-height:1.2}
+.ui-chat-meta span{font-size:.55rem;color:var(--acid);font-family:var(--f-mono)}
+.ui-time{font-size:.5rem;color:var(--paper-3);margin-top:.2rem;display:block;text-align:right}
+
+.ui-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;width:100%}
+.ui-metric-box{background:rgba(242,239,233,.03);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem}
+.ui-metric-box span{font-family:var(--f-mono);font-size:.56rem;color:var(--paper-3);text-transform:uppercase;letter-spacing:.08em;display:block}
+.ui-metric-box b{font-family:var(--f-display);font-size:1.15rem;color:var(--paper);display:block;margin-top:.2rem}
+.ui-metric-box b em{color:var(--acid);font-style:normal}
+.ui-alert-strip{grid-column:1 / -1;background:rgba(214,255,74,.05);border:1px solid var(--acid-line);border-radius:8px;padding:.5rem .75rem;font-family:var(--f-mono);font-size:.58rem;color:var(--paper-2);display:flex;align-items:center;justify-content:space-between}
+
+.ui-term{font-family:var(--f-mono);font-size:.6rem;line-height:1.65;color:var(--paper-2);width:100%}
+.ui-term .t-red{color:#FF6B6B}
+.ui-term .t-acid{color:var(--acid)}
+.ui-term .t-dim{color:var(--paper-3)}
+
+.ui-pos-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:.5rem;border-bottom:1px solid var(--line);font-family:var(--f-mono);font-size:.58rem;color:var(--paper-3)}
+.ui-pos-total{margin-top:.7rem;padding-top:.6rem;border-top:1px dashed var(--line-mid);display:flex;justify-content:space-between;align-items:center;font-family:var(--f-mono)}
+.ui-pos-total span{color:var(--paper-3);font-size:.65rem}
+.ui-pos-total b{color:var(--acid);font-size:.88rem}
+
+.ui-3d-hud{width:100%;height:100%;display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.ui-grid-mesh{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px, transparent 1px),linear-gradient(90deg, var(--line) 1px, transparent 1px);background-size:24px 24px;opacity:.35;transform:perspective(320px) rotateX(48deg);transform-origin:center bottom}
+.ui-hud-tag{position:relative;z-index:2;display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:.58rem;color:var(--paper-3)}
+.ui-hud-tag span{background:rgba(8,8,10,.85);border:1px solid var(--line-mid);padding:.2rem .55rem;border-radius:6px}
+.ui-hud-center{position:relative;z-index:2;align-self:center;text-align:center;background:rgba(8,8,10,.75);padding:.8rem 1.2rem;border-radius:12px;border:1px solid var(--acid-line)}
+.ui-hud-center b{font-family:var(--f-mono);font-size:.7rem;color:var(--acid);display:block}
+.ui-hud-center span{font-size:.56rem;color:var(--paper-3);font-family:var(--f-mono)}
+/* --- PROJECT IMAGE WRAPPER --- */
+.viz-img-wrap{
+  position:absolute;
+  inset:36px 0 0 0;
+  overflow:hidden;
+  background:#0B0B0E;
+}
+.viz-img-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:top center;
+  filter:brightness(0.92) contrast(1.05);
+  transition:transform .7s var(--ease), filter .5s ease;
+  display:block;
+}
+.project:hover .viz-img-wrap img{
+  transform:scale(1.04);
+  filter:brightness(1) contrast(1.08);
+}
+.viz-overlay-fade{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to top, rgba(8,8,10,.65) 0%, transparent 45%);
+  pointer-events:none;
+}
 /* ============================================================
    11 · WORK
    ============================================================ */
@@ -1781,6 +1838,7 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 
       <div class="hero-cta reveal">
         <a href="#contact" class="btn btn-acid">Start a project <span>→</span></a>
+        <a href="resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost">Resume / CV <span>↓</span></a>
         <a href="#work" class="btn btn-ghost">Selected work</a>
         <a href="https://github.com/umairs759" target="_blank" rel="noopener" class="btn btn-social">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -1925,7 +1983,7 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
       <div>
         <span class="sec-num">02 — Capabilities</span>
         <h2 class="sec-title">What I actually <em>do</em>.</h2>
-        <span class="ai-note">Developed with the help of AI</span>
+        
       </div>
       <p>Six disciplines, one mindset: understand the system, find the weak point, then build it better.</p>
     </div>
@@ -1985,42 +2043,35 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
   <div class="container">
     <div class="sec-head">
       <div>
-        <span class="sec-num">03 — Selected Work</span>
-        <h2 class="sec-title">Things I've <em>built</em>.</h2>
-        <span class="ai-note">AI-assisted builds</span>
+        <span class="sec-num">03 — Production Engineering</span>
+        <h2 class="sec-title">Systems that solve<br><em>real-world</em> friction.</h2>
       </div>
-      <p>Seven projects across AI, retail, 3D web, finance, data and growth.</p>
+      <p>Hardened security utilities, automated business agents, low-latency trading engines, and offline-first commerce.</p>
     </div>
 
     <!-- Project 1 — LocalBiz AI WhatsApp Agent -->
     <article class="project reveal">
       <div class="p-body">
-        <div class="p-index">Project 01 — AI Agent</div>
-        <span class="p-ai">Developed with the help of AI</span>
+        <div class="p-index">Project 01 — Conversational AI</div>
         <h3 class="p-title">LocalBiz AI WhatsApp Agent</h3>
         <p class="p-desc">
-          A 24/7 AI WhatsApp receptionist for local businesses — a free SaaS alternative
-          using Meta API with Groq Llama 3.3 → Gemini 2.0 failover. Handles customer
-          queries, qualifies leads and routes orders. Docker-ready for one-command deployment.
+          Solves after-hours customer loss for regional businesses. An autonomous 24/7 conversational receptionist integrated with Meta Cloud API, engineered with dual-engine failover (Groq Llama 3.3 primary → Gemini 2.0 backup). Automatically validates table bookings, qualifies buyer intent, and pushes clean lead payloads directly into staff communication channels.
         </p>
         <div class="p-meta">
           <span>Python</span><span>FastAPI</span><span>Docker</span>
-          <span>Groq Llama 3.3</span><span>Gemini 2.0</span><span>Meta API</span>
+          <span>Groq Llama 3.3</span><span>Gemini 2.0</span><span>Meta Cloud API</span>
         </div>
         <a href="https://github.com/umairs759/LocalBiz-AI-WhatsApp-Agent" target="_blank" rel="noopener" class="p-link">
-          View on GitHub
+          Explore Repository
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         </a>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>agent.py</em></div>
-          <div class="viz-body">
-            <div class="chat">
-              <div class="bubble in-b">Hi — do you deliver to DHA Phase 5?</div>
-              <div class="bubble out-b">Yes! ~30 min. Want me to place the order?</div>
-              <div class="bubble in-b typing"><u></u><u></u><u></u></div>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>whatsapp_agent_session.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="whatsapp.png" alt="LocalBiz AI WhatsApp Agent live interface" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2029,34 +2080,26 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
     <!-- Project 2 — BrandPulse AI Agent -->
     <article class="project flip reveal">
       <div class="p-body">
-        <div class="p-index">Project 02 — AI Agent</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">BrandPulse AI Agent</h3>
+        <div class="p-index">Project 02 — Sentiment Telemetry</div>
+        <h3 class="p-title">BrandPulse AI Telemetry</h3>
         <p class="p-desc">
-          A state-of-the-art AI Agent designed to bridge the gap between local businesses
-          and data-driven intelligence. Automates reputation management, sentiment tracking
-          and customer engagement — turning scattered feedback into actionable insight.
+          Automates sentiment audit and brand protection for local food chains and retail outlets. Connects scattered review sources across Google Maps and social portals, parses nuance with local context awareness, and drafts humanized resolution responses before customer dissatisfaction impacts public rating thresholds.
         </p>
         <div class="p-meta">
-          <span>Python</span><span>AI Agent</span>
-          <span>Sentiment Analysis</span><span>Reputation Mgmt</span>
+          <span>Python</span><span>FastAPI</span><span>Sentiment NLP</span>
+          <span>Brand Defense</span><span>Automated Feedback</span>
         </div>
         <a href="https://github.com/umairs759/brandpulse-ai-agent" target="_blank" rel="noopener" class="p-link">
-          View on GitHub
+          Explore Repository
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         </a>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>brandpulse.agent</em></div>
-          <div class="viz-body">
-            <div class="pipe">
-              <div class="pipe-node"><b>01</b><span>Listen</span></div>
-              <div class="pipe-line"></div>
-              <div class="pipe-node"><b>02</b><span>Analyze</span></div>
-              <div class="pipe-line"></div>
-              <div class="pipe-node"><b>03</b><span>Engage</span></div>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>brandpulse_dashboard.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="brandpulse.png" alt="BrandPulse sentiment analytics dashboard" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2065,68 +2108,59 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
     <!-- Project 3 — RetailFlow-POS -->
     <article class="project reveal">
       <div class="p-body">
-        <div class="p-index">Project 03 — Retail Systems</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">RetailFlow-POS</h3>
+        <div class="p-index">Project 03 — Resilient POS Architecture</div>
+        <h3 class="p-title">RetailFlow-POS (Offline-First)</h3>
         <p class="p-desc">
-          A lightweight, offline-first retail management &amp; POS console built with pure
-          Vanilla JS. Features instant billing, Khata (credit book), WhatsApp digital
-          receipts, and inventory tracking — runs entirely in the browser, no backend needed.
+          Engineered for brick-and-mortar storefronts in environments prone to sudden internet outages. Zero subscription fees, zero external server dependencies. Runs completely client-side in Chromium with instant billing, ledger credit-book tracking (Khata), inventory reconciliation, and direct-to-WhatsApp digital receipt dispatching.
         </p>
         <div class="p-meta">
           <span>Vanilla JavaScript</span><span>HTML5</span>
-          <span>LocalStorage</span><span>Offline-First</span><span>WhatsApp Receipts</span>
+          <span>LocalStorage Engine</span><span>Offline-First</span><span>Receipt Dispatch</span>
         </div>
         <a href="https://github.com/umairs759/RetailFlow-POS" target="_blank" rel="noopener" class="p-link">
-          View on GitHub
+          Explore Repository
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
         </a>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>retailflow.html</em></div>
-          <div class="viz-body">
-            <div class="pos">
-              <div class="pos-line"><span>Chicken Burger × 2</span><b>Rs 640</b></div>
-              <div class="pos-line"><span>Coleslaw × 1</span><b>Rs 120</b></div>
-              <div class="pos-line"><span>Cold Drink 500ml</span><b>Rs 90</b></div>
-              <div class="pos-line"><span>Total</span><b>Rs 850</b><span class="ok">Paid</span></div>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>retailflow_checkout_ui.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="retailflow.png" alt="RetailFlow-POS checkout console" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
     </article>
 
-    <!-- Project 4 — Labaik Broast -->
+    <!-- Project 4 — Bella's Restaurant Platform -->
     <article class="project flip reveal">
       <div class="p-body">
-        <div class="p-index">Project 04 — 3D Web</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">Labaik Broast</h3>
+        <div class="p-index">Project 04 — Web Architecture &amp; E-Commerce</div>
+        <h3 class="p-title">Bella's Fast Food — Digital Storefront</h3>
         <p class="p-desc">
-          An interactive 3D restaurant web application built with Three.js and vanilla
-          JavaScript. Custom WebGL scenes, smooth camera work and a full menu experience —
-          engineered to feel premium on desktop and mobile alike.
+          A high-conversion digital menu and late-night order routing platform engineered for Bella's Haripur. Features client-side tray management, Google Reviews social-proof integration, live operational hours telemetry, and one-tap WhatsApp order dispatching.
         </p>
         <div class="p-meta">
-          <span>Three.js</span><span>JavaScript</span>
-          <span>WebGL</span><span>Interactive 3D</span>
+          <span>JavaScript</span><span>HTML5 / CSS3</span>
+          <span>Responsive Web</span><span>Order Telemetry</span><span>WhatsApp Routing</span>
+        </div>
+        <div style="display:flex; gap:1.2rem; align-items:center; margin-top:1.2rem;">
+          <a href="https://github.com/umairs759/bellas-restaurant-haripur" target="_blank" rel="noopener" class="p-link" style="margin-top:0;">
+            Explore Repository
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          </a>
+          <a href="https://umairs759.github.io/bellas-restaurant-haripur/" target="_blank" rel="noopener" class="p-link" style="margin-top:0; color:var(--paper);">
+            Live Preview ↗
+          </a>
         </div>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>labaik.three</em></div>
-          <div class="viz-body">
-            <div class="cube-stage">
-              <div class="cube">
-                <div class="cube-face">3D</div>
-                <div class="cube-face">Menu</div>
-                <div class="cube-face">Scene</div>
-                <div class="cube-face">WebGL</div>
-                <div class="cube-face">Three</div>
-                <div class="cube-face">UI</div>
-              </div>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>bellas_haripur_platform.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="bellas-3d.png" alt="Bella's Fast Food Haripur digital platform interface" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2135,25 +2169,34 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
     <!-- Project 5 — Algorithmic Trading Bots -->
     <article class="project reveal">
       <div class="p-body">
-        <div class="p-index">Project 05 — Trading Systems</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">Algorithmic Trading Bots</h3>
+        <div class="p-index">Project 05 — Quantitative Execution (Phase 1)</div>
+        <h3 class="p-title">Algorithmic Risk-Capped Trading Bots</h3>
         <p class="p-desc">
-          Automated strategies and Expert Advisors for MetaTrader 5 and TradingView,
-          driven by Python automation. Every strategy ships with hard-coded risk limits,
-          position sizing rules and a kill-switch — because a bot without risk management
-          is just an expensive random number generator.
+          Automated Expert Advisors (EAs) and quantitative execution monitors for MetaTrader 5. Currently in Phase 1 development focusing on algorithmic risk governance: hard-coded 2% drawdown limits, dynamic position sizing, and slippage filters prior to live capital deployment.
         </p>
         <div class="p-meta">
           <span>MetaTrader 5</span><span>MQL5</span>
-          <span>TradingView</span><span>Python</span><span>Risk Management</span>
+          <span>Python</span><span>Quantitative Risk</span><span>Active Development</span>
         </div>
+        <span class="p-link" style="opacity:.8; cursor:default;">
+          Phase 1: Architecture &amp; Backtesting
+        </span>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>strategy_v4.mq5</em></div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>risk_controller_ea.mq5</em></div>
           <div class="viz-body">
-            <div class="viz-chart">
+            <div class="ui-card-grid" style="margin-bottom:.5rem;">
+              <div class="ui-metric-box">
+                <span>Max Drawdown Limit</span>
+                <b>2.0% <em>LOCKED</em></b>
+              </div>
+              <div class="ui-metric-box">
+                <span>Risk/Reward Metric</span>
+                <b>1:3.2 <em>DYNAMIC</em></b>
+              </div>
+            </div>
+            <div class="viz-chart" style="height:90px;">
               <svg viewBox="0 0 320 170" preserveAspectRatio="none" role="img" aria-label="Equity curve">
                 <defs>
                   <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
@@ -2177,33 +2220,29 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
       </div>
     </article>
 
-    <!-- Project 6 — Tally.so Lead Pipelines -->
+    <!-- Project 6 — Linux Auto Incident Responder -->
     <article class="project flip reveal">
       <div class="p-body">
-        <div class="p-index">Project 06 — Data Pipelines</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">Tally.so Lead Pipelines</h3>
+        <div class="p-index">Project 06 — Defensive Security &amp; EDR</div>
+        <h3 class="p-title">auto-incident-responder (Linux EDR)</h3>
         <p class="p-desc">
-          Scalable cloud form systems deployed for local brands — capturing leads, scoring
-          intent and pushing structured data into dashboards. Built for clients including
-          Pizza Heights, with sentiment tracking so teams see how customers actually feel.
+          An open-source active defense containment daemon built for Linux production environments. Continuously watches process lifecycles, unauthorized privilege escalations, and abnormal socket connections. Automatically executes targeted PID termination, memory dumps, and host-level iptables isolation routines before human incident response teams can manually log in.
         </p>
         <div class="p-meta">
-          <span>Tally.so</span><span>Cloud Forms</span>
-          <span>Sentiment Analysis</span><span>Analytics</span>
+          <span>Python</span><span>FastAPI</span><span>Linux Kernel Hooks</span>
+          <span>Docker</span><span>Active Defense</span><span>WebSocket Telemetry</span>
         </div>
+        <a href="https://github.com/umairs759/auto-incident-responder" target="_blank" rel="noopener" class="p-link">
+          Explore Repository
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>pipeline.flow</em></div>
-          <div class="viz-body">
-            <div class="pipe">
-              <div class="pipe-node"><b>01</b><span>Capture</span></div>
-              <div class="pipe-line"></div>
-              <div class="pipe-node"><b>02</b><span>Score</span></div>
-              <div class="pipe-line"></div>
-              <div class="pipe-node"><b>03</b><span>Route</span></div>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>edr_active_containment_terminal.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="edr-security.png" alt="Linux EDR containment terminal monitoring output" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2212,26 +2251,25 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
     <!-- Project 7 — SEO & Digital Growth Engine -->
     <article class="project reveal">
       <div class="p-body">
-        <div class="p-index">Project 07 — Growth</div>
-        <span class="p-ai">Developed with the help of AI</span>
-        <h3 class="p-title">SEO &amp; Digital Growth Engine</h3>
+        <div class="p-index">Project 07 — Data-Driven Distribution</div>
+        <h3 class="p-title">Sports Analytics &amp; Organic Distribution Engine</h3>
         <p class="p-desc">
-          Rebuilt the content and metadata architecture for a sports media channel —
-          restructuring information hierarchy, fixing crawl waste and rewriting titles
-          around actual search intent. Result: 230K+ organic views in a single week.
+          Diagnosed severe indexing stagnation on a sports entertainment publication. Restructured URL taxonomy, rectified internal crawl budget waste, and rewrote programmatic metadata schemas to match high-velocity search queries during live fixtures. Catapulted impressions from dormant levels to 230K+ verified organic views in 7 days without ad spend.
         </p>
         <div class="p-meta">
-          <span>SEO</span><span>Metadata Optimization</span>
-          <span>Content Strategy</span><span>Analytics</span>
+          <span>Search Architecture</span><span>Metadata Engineering</span>
+          <span>Crawl Optimization</span><span>Organic Growth Strategy</span>
         </div>
+        <span class="p-link" style="opacity:.8; cursor:default;">
+          Verified Growth Case Study
+        </span>
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><em>growth.report</em></div>
-          <div class="viz-body">
-            <div class="bars">
-              <b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b>
-            </div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>search_console_performance_spike.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="growth-analytics.png" alt="Google Search Console 230K organic impressions spike" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2239,11 +2277,6 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 
   </div>
 </section>
-
-<!-- ============================================================
-     RECOGNITION
-   ============================================================ -->
-<section class="recog" id="recognition">
   <div class="container">
     <div class="sec-head">
       <div>
@@ -2294,7 +2327,7 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
       <div class="tl-item reveal">
         <span class="tl-year">2026</span>
         <h3 class="tl-name">Major League Hacking (MLH) Fellowship</h3>
-        <p class="tl-desc">Fellowship applicant — open-source contributions featured, including the public 'Memori' repository as a flagship sample.<span class="tl-badge">Open Source</span></p>
+        <p class="tl-desc">Fellowship applicant — featured open-source security tooling, endpoint containment systems, and scheduled automation workflows.<span class="tl-badge">Open Source</span></p>
       </div>
 
       <div class="tl-item reveal">
