@@ -2,14 +2,14 @@
 
 # 🛡️ Muhammad Umair — Cyber-Executive Portfolio
 
-**A dark-themed personal portfolio engineered with a cybersecurity-first aesthetic — pure HTML5, CSS3 (custom design system), and vanilla JavaScript.**
+**An elite dark-themed personal portfolio engineered with a cybersecurity-first aesthetic — built completely from scratch using pure HTML5, CSS3 (custom design system), and vanilla JavaScript.**
 
-[![Live Demo](https://img.shields.io/badge/Live_Portfolio-umairs759.github.io-D6FF4A?style=for-the-badge&logo=githubpages&logoColor=08080A)](https://umairs759.github.io/Muhammad-Umair-Portfolio/)
-[![Tech Stack](https://img.shields.io/badge/Stack-HTML5_·_CSS3_·_JavaScript-08080A?style=for-the-badge&logo=javascript&logoColor=D6FF4A)](#-built-with)
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-umairs759.github.io-E8B04B?style=for-the-badge&logo=githubpages&logoColor=08080A)](https://umairs759.github.io/Muhammad-Umair-Portfolio/)
+[![Tech Stack](https://img.shields.io/badge/Stack-HTML5_·_CSS3_·_JS-08080A?style=for-the-badge&logo=javascript&logoColor=E8B04B)](#-built-with)
 [![License](https://img.shields.io/badge/License-MIT-4ADE80?style=for-the-badge)](#-license)
-[![Status](https://img.shields.io/badge/Status-Actively_Maintained-4361EE?style=for-the-badge)](#)
+[![Status](https://img.shields.io/badge/Status-Actively_Maintained-E8B04B?style=for-the-badge)](#)
 
-[Live Site](https://umairs759.github.io/Muhammad-Umair-Portfolio/) · [Report Bug](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues) · [Request Feature](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues)
+[Live Preview](https://umairs759.github.io/Muhammad-Umair-Portfolio/) · [Report Bug](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues) · [Request Feature](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues)
 
 </div>
 
