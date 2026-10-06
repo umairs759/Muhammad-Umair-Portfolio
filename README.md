@@ -9,7 +9,6 @@
 [![License](https://img.shields.io/badge/License-MIT-4ADE80?style=for-the-badge)](#-license)
 [![Status](https://img.shields.io/badge/Status-Actively_Maintained-E8B04B?style=for-the-badge)](#)
 
-[Live Preview](https://umairs759.github.io/Muhammad-Umair-Portfolio/) · [Report Bug](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues) · [Request Feature](https://github.com/umairs759/Muhammad-Umair-Portfolio/issues)
 
 </div>
 
