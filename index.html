@@ -768,73 +768,87 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 .about-copy .lead em{font-style:italic;color:var(--acid)}
 
 .spec{
-  border-top:1px solid var(--line);
-  position:sticky;top:100px;
+  position:relative;
+  top:0;
+  padding:0.6rem 1.4rem;
+  border:1px solid var(--line-mid);
+  border-radius:18px;
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+}
+@media (min-width:960px){
+  .spec{
+    position:sticky;
+    top:100px;
+    align-self:start;
+  }
 }
 .spec-row{
   display:grid;
   grid-template-columns:auto 1fr;
-  gap:1.5rem;
-  padding:1.05rem 0;
+  gap:1.2rem;
+  padding:.95rem 0;
   border-bottom:1px solid var(--line);
-  align-items:baseline;
+  align-items:center;
   transition:padding-left .4s var(--ease), background .4s var(--ease);
 }
-.spec-row:hover{padding-left:.6rem;background:rgba(232,176,75,.025)}
+.spec-row:last-child{border-bottom:none}
+.spec-row:hover{padding-left:.4rem;background:rgba(232,176,75,.02)}
 .spec-row dt{
   font-family:var(--f-mono);
-  font-size:.63rem;
-  letter-spacing:.14em;
+  font-size:.66rem;
+  letter-spacing:.1em;
   text-transform:uppercase;
   color:var(--paper-3);
   white-space:nowrap;
 }
 .spec-row dd{
+  font-family:var(--f-sans);
   font-size:.9rem;
   color:var(--paper);
   text-align:right;
   font-weight:400;
 }
-.spec-row dd span{color:var(--acid)}
+.spec-row dd span{color:var(--acid);font-weight:500}
 
 .stats{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:1px;
-  background:var(--line);
-  border:1px solid var(--line);
-  border-radius:16px;
-  overflow:hidden;
-  margin-top:clamp(3rem,6vw,5rem);
+  gap:1rem;
+  background:transparent;
+  border:none;
+  margin-top:clamp(2.5rem,5vw,4.5rem);
+  width:100%;
 }
-@media (min-width:760px){.stats{grid-template-columns:repeat(4,1fr)}}
+@media (min-width:760px){
+  .stats{grid-template-columns:repeat(4,1fr);gap:1.25rem}
+}
 .stat{
-  background:var(--ink);
-  padding:clamp(1.6rem,3.5vw,2.6rem) 1.2rem;
+  background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.008));
+  border:1px solid var(--line-mid);
+  border-radius:18px;
+  padding:clamp(1.4rem,3vw,2.4rem) 1rem;
   text-align:center;
-  transition:background .4s var(--ease);
+  transition:transform .4s var(--ease), border-color .4s ease, box-shadow .4s var(--ease);
   position:relative;
+  overflow:hidden;
 }
-.stat:hover{background:var(--surface)}
-.stat::after{
-  content:'';position:absolute;left:50%;bottom:0;
-  width:0;height:2px;background:var(--acid);
-  transform:translateX(-50%);
-  transition:width .5s var(--ease);
+.stat:hover{
+  transform:translateY(-3px);
+  border-color:var(--acid-line);
+  box-shadow:0 16px 40px rgba(0,0,0,.4);
 }
-.stat:hover::after{width:38%}
 .stat-num{
   font-family:var(--f-display);
   font-weight:400;
-  font-size:clamp(2rem,1.3rem + 2.6vw,3.2rem);
+  font-size:clamp(1.9rem,1.3rem + 2.2vw,3rem);
   line-height:1;
-  letter-spacing:-.04em;
+  letter-spacing:-.03em;
   display:block;
   font-variation-settings:"opsz" 144;
 }
 .stat-num sup{
   font-family:var(--f-mono);
-  font-size:.32em;
+  font-size:.38em;
   color:var(--acid);
   vertical-align:super;
   letter-spacing:0;
@@ -842,8 +856,8 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 }
 .stat-lbl{
   font-family:var(--f-mono);
-  font-size:.6rem;
-  letter-spacing:.14em;
+  font-size:.62rem;
+  letter-spacing:.12em;
   text-transform:uppercase;
   color:var(--paper-3);
   margin-top:.7rem;
@@ -1929,13 +1943,14 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
   .project{border-radius:20px;padding:1.25rem 1rem;margin-bottom:1.5rem}
   .cap,.tl-item,.stat{border-radius:14px}
   .portrait-frame{border-radius:18px}
-  .spec-row{gap:.8rem}
-  .spec-row dt{font-size:.58rem}
+  .spec{padding:.5rem 1.1rem;border-radius:16px}
+  .spec-row{gap:.8rem;padding:.8rem 0}
+  .spec-row dt{font-size:.6rem}
   .spec-row dd{font-size:.82rem}
   .viz{aspect-ratio:auto;min-height:220px}
   .ui-card-grid{grid-template-columns:1fr;gap:.5rem}
-  .stats{grid-template-columns:repeat(2,1fr);gap:1px}
-  .stat{padding:1.3rem .8rem}
+  .stats{grid-template-columns:repeat(2,1fr);gap:.75rem}
+  .stat{padding:1.2rem .6rem;border-radius:14px}
   .c-info{border-radius:16px;padding:1.15rem 1rem;gap:1.1rem}
   .c-row dt{font-size:.62rem}
   .c-row dd{font-size:.82rem}
