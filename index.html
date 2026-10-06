@@ -46,7 +46,7 @@
     "Microsoft Learn Student Ambassador — Community Influencer",
     "Major League Hacking (MLH) Fellowship Applicant",
     "Digital Marketing & SEO Certification — JDC Free IT City",
-    "Microsoft Learn — SQL Database Objects & Data Security (ongoing)"
+    "Microsoft Learn — SQL Database Objects & Data Security"
   ]
 }
 </script>
@@ -100,6 +100,8 @@ html{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
+  overflow-x:hidden;
+  width:100%;
 }
 
 body{
@@ -452,11 +454,13 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
   background:var(--ink);
   z-index:1000;
   display:flex;flex-direction:column;
-  justify-content:center;
-  padding:var(--nav-h) var(--pad) 3rem;
+  justify-content:flex-start;
+  padding:calc(var(--nav-h) + 1.5rem) var(--pad) 3rem;
   clip-path:inset(0 0 100% 0);
   transition:clip-path .75s var(--ease-io);
   pointer-events:none;
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
 }
 .menu.open{clip-path:inset(0 0 0 0);pointer-events:auto}
 .menu::before{
@@ -848,17 +852,23 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
 
 .cap{
   position:relative;
-  display:grid;
-  grid-template-columns:auto 1fr;
-  gap:1.25rem 1.5rem;
-  padding:1.9rem 1.4rem;
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  padding:1.6rem 1.25rem;
   border-bottom:1px solid var(--line);
   overflow:hidden;
   cursor:default;
   transition:padding-left .5s var(--ease), padding-right .5s var(--ease);
 }
 @media (min-width:860px){
-  .cap{grid-template-columns:64px minmax(0,1fr) minmax(0,1.05fr) auto;gap:2rem;align-items:center;padding:2.1rem 1.4rem}
+  .cap{
+    display:grid;
+    grid-template-columns:64px minmax(0,1fr) minmax(0,1.05fr) auto;
+    gap:2rem;
+    align-items:center;
+    padding:2.1rem 1.4rem;
+  }
 }
 .cap::before{
   content:'';
@@ -1697,11 +1707,13 @@ section{position:relative;scroll-margin-top:var(--nav-h)}
    15 · RESPONSIVE
    ============================================================ */
 @media (max-width:520px){
-  .hero-title{font-size:clamp(2.6rem,13.5vw,3.6rem)}
-  .band{transform:rotate(-1.6deg) scale(1.06)}
-  .btn{padding:.9rem 1.3rem;font-size:.68rem}
-  .hero-cta{gap:.6rem}
-  .hero-cta .btn{flex:1;justify-content:center}
+  .hero-title{font-size:clamp(2.4rem,11.5vw,3.4rem);line-height:1.02}
+  .band{transform:rotate(-1deg) scale(1.02)}
+  .btn{padding:.85rem 1.2rem;font-size:.68rem}
+  .hero-cta{display:grid;grid-template-columns:1fr 1fr;gap:.65rem;width:100%}
+  .hero-cta .btn:first-child{grid-column:1 / -1}
+  .hero-cta .btn{justify-content:center;white-space:normal;text-align:center}
+  .portrait{width:min(100%, 260px)}
   .foot-inner{flex-direction:column;align-items:flex-start}
 }
 
@@ -1875,9 +1887,16 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
 .lb button:hover{background:var(--acid-soft)}
 
 @media(max-width:720px){
-  .project{border-radius:20px;padding:1.1rem;margin-bottom:1.5rem}
+  .project{border-radius:20px;padding:1.25rem 1rem;margin-bottom:1.5rem}
   .cap,.tl-item,.stat{border-radius:14px}
   .portrait-frame{border-radius:18px}
+  .spec-row{gap:.8rem}
+  .spec-row dt{font-size:.58rem}
+  .spec-row dd{font-size:.82rem}
+  .viz{aspect-ratio:auto;min-height:220px}
+  .ui-card-grid{grid-template-columns:1fr;gap:.5rem}
+  .stats{grid-template-columns:repeat(2,1fr);gap:1px}
+  .stat{padding:1.3rem .8rem}
 }
 @media(prefers-reduced-motion:reduce){.portrait-frame,.cap,.project,.viz-img-wrap img{transition:none!important}}
 </style>
@@ -2465,8 +2484,8 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
         <p class="tl-desc">Fellowship applicant — featured open-source security tooling, endpoint containment systems, and scheduled automation workflows.<span class="tl-badge">Open Source</span></p>
       </div>
 
-<div class="tl-item reveal">
-        <span class="tl-year">2026 (Ongoing)</span>
+      <div class="tl-item reveal">
+        <span class="tl-year">2026</span>
         <h3 class="tl-name">Microsoft Learn — SQL &amp; Data Security</h3>
         <p class="tl-desc">Specialised training on SQL database objects and strict data security compliance.<span class="tl-badge">SQL &amp; Security</span></p>
       </div>
@@ -2862,34 +2881,7 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
     });
   }
 
-  /* ---------- image lightbox ---------- */
-  var lb = document.createElement('div');
-  lb.className = 'lightbox';
-  lb.setAttribute('role','dialog');
-  lb.setAttribute('aria-label','Image preview');
-  lb.innerHTML = '<button type="button" aria-label="Close preview">&#x2715;</button><img alt="">';
-  document.body.appendChild(lb);
-  var lbImg = lb.querySelector('img');
-
-  function openLb(img){
-    lbImg.src = img.src;
-    lbImg.alt = img.alt || 'Project preview';
-    lb.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeLb(){
-    lb.classList.remove('show');
-    document.body.style.overflow = '';
-  }
-  document.querySelectorAll('.viz-img-wrap img').forEach(function(img){
-    img.addEventListener('click', function(){ openLb(img); });
-  });
-  lb.addEventListener('click', function(e){
-    if(e.target === lb || e.target.tagName === 'BUTTON') closeLb();
-  });
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeLb();
-  });
+  
 
   /* ---------- form error feedback ---------- */
   function flagInvalid(el){
