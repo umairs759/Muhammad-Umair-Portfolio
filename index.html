@@ -17,7 +17,8 @@
 <meta name="twitter:description" content="Secure systems, AI automation and full-stack products.">
 <meta name="twitter:image" content="https://umair.dev/og-image.jpg">
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%2308080A'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='54' font-weight='600' text-anchor='middle' fill='%23E8B04B'%3EU%3C/text%3E%3C/svg%3E">
+<!-- Favicon with Obsidian & Champagne Gold Accent -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A0908'/%3E%3Ctext x='50' y='70' font-family='Georgia,serif' font-size='54' font-weight='600' text-anchor='middle' fill='%23E9B654'%3EU%3C/text%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
@@ -59,10 +60,10 @@
 
 <style>
 /* ============================================================
-   1 · TOKENS & 3 HIGH-LEVEL DYNAMIC THEMES
+   1 · TOKENS & 3 DYNAMIC THEMES (GOLD DEFAULT ON LOAD)
    ============================================================ */
-:root {
-  /* THEME 1: Obsidian & Champagne Gold (Default) */
+:root, [data-theme="gold"] {
+  /* THEME 1 (DEFAULT ON LOAD): Obsidian & Champagne Gold */
   --ink:          #0A0908;
   --ink-2:        #11100D;
   --surface:      #161512;
@@ -70,11 +71,9 @@
   --line:         rgba(237,232,223,.08);
   --line-mid:     rgba(237,232,223,.15);
   --line-strong:  rgba(237,232,223,.28);
-
   --paper:        #F2EDE4;
   --paper-2:      #A9A296;
   --paper-3:      #767064;
-
   --acid:         #E9B654;
   --acid-rgb:     233, 182, 84;
   --acid-soft:    rgba(233,182,84,.09);
@@ -95,27 +94,7 @@
   --nav-h:        72px;
 }
 
-/* THEME 2: Cyber Emerald (Matrix Defensive Security) */
-[data-theme="emerald"] {
-  --ink:          #060B08;
-  --ink-2:        #0A120E;
-  --surface:      #0F1914;
-  --surface-2:    #14231B;
-  --line:         rgba(215,255,230,.07);
-  --line-mid:     rgba(215,255,230,.15);
-  --line-strong:  rgba(215,255,230,.28);
-  --paper:        #EBF7F0;
-  --paper-2:      #9EB5A7;
-  --paper-3:      #6B8374;
-  --acid:         #10E794;
-  --acid-rgb:     16, 231, 148;
-  --acid-soft:    rgba(16,231,148,.09);
-  --acid-line:    rgba(16,231,148,.30);
-  --accent-grad:  linear-gradient(135deg, #7CFFCC 0%, #10E794 50%, #089A61 100%);
-  --glass:        rgba(15, 25, 20, 0.75);
-}
-
-/* THEME 3: Deep Sapphire (Quantum AI & Cloud) */
+/* THEME 2 (OPTION 2): Deep Sapphire (Quantum AI & Cloud) */
 [data-theme="sapphire"] {
   --ink:          #080A12;
   --ink-2:        #0C0F1B;
@@ -133,6 +112,26 @@
   --acid-line:    rgba(56,189,248,.32);
   --accent-grad:  linear-gradient(135deg, #93C5FD 0%, #38BDF8 50%, #0284C7 100%);
   --glass:        rgba(18, 22, 38, 0.75);
+}
+
+/* THEME 3 (OPTION 3): Cyber Emerald (Defensive Security & Kernel Ops) */
+[data-theme="emerald"] {
+  --ink:          #060B08;
+  --ink-2:        #0A120E;
+  --surface:      #0F1914;
+  --surface-2:    #14231B;
+  --line:         rgba(215,255,230,.07);
+  --line-mid:     rgba(215,255,230,.15);
+  --line-strong:  rgba(215,255,230,.28);
+  --paper:        #EBF7F0;
+  --paper-2:      #9EB5A7;
+  --paper-3:      #6B8374;
+  --acid:         #10E794;
+  --acid-rgb:     16, 231, 148;
+  --acid-soft:    rgba(16,231,148,.09);
+  --acid-line:    rgba(16,231,148,.30);
+  --accent-grad:  linear-gradient(135deg, #7CFFCC 0%, #10E794 50%, #089A61 100%);
+  --glass:        rgba(15, 25, 20, 0.75);
 }
 
 /* ============================================================
@@ -479,14 +478,22 @@ section{position:relative;scroll-margin-top:calc(var(--nav-h) + 1.5rem)}
   display:flex;align-items:center;gap:1.1rem;
 }
 
-/* Theme Selector Control */
+/* Theme Selector Control (1. Gold Default / 2. Sapphire / 3. Emerald) */
 .theme-switch{
-  display:flex;align-items:center;gap:.35rem;
+  display:flex;align-items:center;gap:.45rem;
   background:rgba(255,255,255,.03);
   border:1px solid var(--line-mid);
-  padding:.3rem .45rem;
+  padding:.3rem .65rem;
   border-radius:99px;
   backdrop-filter:blur(8px);
+}
+.theme-hint{
+  font-family:var(--f-mono);
+  font-size:.62rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--paper-3);
+  user-select:none;
 }
 .theme-dot{
   width:15px;height:15px;border-radius:50%;
@@ -498,8 +505,8 @@ section{position:relative;scroll-margin-top:calc(var(--nav-h) + 1.5rem)}
 .theme-dot:hover{transform:scale(1.2)}
 .theme-dot.active{border-color:var(--paper);transform:scale(1.15)}
 .theme-dot[data-set="gold"]{background:#E9B654}
-.theme-dot[data-set="emerald"]{background:#10E794}
 .theme-dot[data-set="sapphire"]{background:#38BDF8}
+.theme-dot[data-set="emerald"]{background:#10E794}
 
 .nav-meta{
   display:none;align-items:center;gap:1.1rem;
@@ -1140,7 +1147,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
 .viz-img-wrap{
   position:absolute;inset:36px 0 0 0;
   overflow:hidden;
-  background:#09090C;
+  background:#0A0908;
 }
 .viz-img-wrap img{
   width:100%;height:100%;
@@ -1159,33 +1166,6 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
   background:linear-gradient(to top, rgba(10,9,8,.7) 0%, transparent 45%);
   pointer-events:none;
 }
-
-/* Algorithmic Trading Charts */
-.viz-body{
-  position:absolute;inset:36px 0 0 0;
-  padding:clamp(1rem, 2.5vw, 1.6rem);
-  display:flex;flex-direction:column;justify-content:center;
-}
-.ui-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;width:100%}
-.ui-metric-box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;padding:.65rem .8rem}
-.ui-metric-box span{font-family:var(--f-mono);font-size:.58rem;color:var(--paper-3);text-transform:uppercase;letter-spacing:.08em;display:block}
-.ui-metric-box b{font-family:var(--f-display);font-size:1.2rem;color:var(--paper);display:block;margin-top:.2rem}
-.ui-metric-box b em{color:var(--acid);font-style:normal}
-
-.viz-chart{width:100%;height:100%;display:flex;align-items:center}
-.viz-chart svg{width:100%;height:auto;overflow:visible}
-.viz-chart .grid line{stroke:rgba(255,255,255,.06);stroke-width:1}
-.viz-chart .area{fill:url(#ag);opacity:0;transition:opacity 1s ease .5s}
-.viz.in .viz-chart .area{opacity:1}
-.viz-chart .line{
-  fill:none;stroke:var(--acid);stroke-width:2.2;
-  stroke-linecap:round;stroke-linejoin:round;
-  stroke-dasharray:900;stroke-dashoffset:900;
-  transition:stroke-dashoffset 2.2s var(--ease) .25s;
-}
-.viz.in .viz-chart .line{stroke-dashoffset:0}
-.viz-chart .dot{fill:var(--acid);opacity:0;transition:opacity .5s ease 2s}
-.viz.in .viz-chart .dot{opacity:1}
 
 /* ============================================================
    10 · RECOGNITION TIMELINE
@@ -1250,13 +1230,21 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
 .contact-lead{
   font-family:var(--f-display);
   font-weight:300;
-  font-size:clamp(1.65rem, 1rem + 3vw, 3.2rem);
-  line-height:1.15;
-  letter-spacing:-.03em;
-  max-width:24ch;
-  margin-bottom:2rem;
+  font-size:clamp(1.4rem, .95rem + 1.8vw, 2.25rem);
+  line-height:1.35;
+  letter-spacing:-.025em;
+  max-width:56ch;
+  color:var(--paper);
+  margin-bottom:2.2rem;
 }
-.contact-lead em{font-style:italic;color:var(--acid)}
+.contact-lead strong{
+  font-weight:500;
+  color:var(--paper);
+}
+.contact-lead em{
+  font-style:italic;
+  color:var(--acid);
+}
 
 .big-mail{
   display:inline-block;
@@ -1381,7 +1369,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
   resize:vertical;
 }
 .f-group textarea{min-height:120px;line-height:1.6}
-.f-group input::placeholder, .f-group textarea::placeholder{color:#555048}
+.f-group input::placeholder, .f-group textarea::placeholder{color:#6b6459}
 .f-group input:focus, .f-group textarea:focus{
   outline:none;
   border-color:var(--acid);
@@ -1503,7 +1491,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
   position:fixed;inset:0;z-index:10000;
   display:grid;place-items:center;
   padding:clamp(1rem, 4vw, 3rem);
-  background:rgba(6,5,4,.88);
+  background:rgba(10,9,8,.88);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   opacity:0;visibility:hidden;
   transition:opacity .35s, visibility .35s;
@@ -1530,7 +1518,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
   position:fixed;left:50%;bottom:2rem;
   transform:translate(-50%,140%);
   display:flex;align-items:center;gap:.75rem;
-  background:rgba(18,17,14,.95);
+  background:rgba(22,21,18,.95);
   backdrop-filter:blur(18px);
   border:1px solid var(--acid-line);
   border-radius:99px;
@@ -1614,11 +1602,12 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
     </nav>
 
     <div class="nav-right">
-      <!-- 3-Choice Dynamic Theme Switcher -->
-      <div class="theme-switch" title="Change Theme Style">
-        <button type="button" class="theme-dot active" data-set="gold" aria-label="Executive Gold Theme"></button>
-        <button type="button" class="theme-dot" data-set="emerald" aria-label="Cyber Defense Emerald Theme"></button>
+      <!-- 3-Choice Dynamic Theme Switcher (1. Gold Default / 2. Sapphire / 3. Emerald) -->
+      <div class="theme-switch" title="Theme Palette Switcher">
+        <span class="theme-hint">Theme:</span>
+        <button type="button" class="theme-dot active" data-set="gold" aria-label="Executive Gold Theme (Default)"></button>
         <button type="button" class="theme-dot" data-set="sapphire" aria-label="Cloud Sapphire Theme"></button>
+        <button type="button" class="theme-dot" data-set="emerald" aria-label="Cyber Defense Emerald Theme"></button>
       </div>
 
       <div class="nav-meta">
@@ -1689,7 +1678,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
           GitHub
         </a>
         <a href="https://www.linkedin.com/in/umairs759" target="_blank" rel="noopener" class="btn btn-social">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/></svg>
+          <svg viewBox="0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/></svg>
           LinkedIn
         </a>
       </div>
@@ -1775,8 +1764,8 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
           Pursuing a <strong>BS in Cyber Security</strong> at the University of Central Punjab
           (UCP) after completing ICS Physics at Punjab Group of Colleges. I'm a
           <strong>Microsoft Learn Student Ambassador</strong> (Community Influencer track, ID:
-          studentamb_625350) and currently learning Advanced Penetration Testing and
-          Python Automation.
+          studentamb_625350) and actively advancing my specialization across Cloud Security,
+          Threat Modeling, and Linux Kernel Incident Defense.
         </p>
         <p class="reveal">
           My work spans <strong>offensive security</strong>, <strong>AI agent development</strong>,
@@ -2028,36 +2017,9 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
       <div class="p-visual">
         <div class="viz" data-viz>
           <div class="viz-bar"><i></i><i></i><i></i><em>risk_controller_ea.mq5</em></div>
-          <div class="viz-body">
-            <div class="ui-card-grid" style="margin-bottom:.5rem;">
-              <div class="ui-metric-box">
-                <span>Max Drawdown Limit</span>
-                <b>2.0% <em>LOCKED</em></b>
-              </div>
-              <div class="ui-metric-box">
-                <span>Risk/Reward Metric</span>
-                <b>1:3.2 <em>DYNAMIC</em></b>
-              </div>
-            </div>
-            <div class="viz-chart" style="height:90px;">
-              <svg viewBox="0 0 320 170" preserveAspectRatio="none" role="img" aria-label="Equity curve">
-                <defs>
-                  <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stop-color="var(--acid)" stop-opacity=".32"/>
-                    <stop offset="100%" stop-color="var(--acid)" stop-opacity="0"/>
-                  </linearGradient>
-                </defs>
-                <g class="grid">
-                  <line x1="0" y1="34" x2="320" y2="34"/>
-                  <line x1="0" y1="68" x2="320" y2="68"/>
-                  <line x1="0" y1="102" x2="320" y2="102"/>
-                  <line x1="0" y1="136" x2="320" y2="136"/>
-                </g>
-                <path class="area" d="M0,142 L30,128 L62,134 L94,106 L126,112 L158,80 L190,88 L222,54 L254,62 L286,28 L320,18 L320,170 L0,170 Z"/>
-                <path class="line" d="M0,142 L30,128 L62,134 L94,106 L126,112 L158,80 L190,88 L222,54 L254,62 L286,28 L320,18"/>
-                <circle class="dot" cx="320" cy="18" r="4"/>
-              </svg>
-            </div>
+          <div class="viz-img-wrap">
+            <img src="tradigbotpic.jpg" alt="Algorithmic Risk-Capped Trading Bot Dashboard" loading="lazy" id="tradingBotImg">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -2207,7 +2169,10 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
       <p>Security audit, AI pipeline, trading bot or a full product — I reply to everything within a day.</p>
     </div>
 
-    <p class="contact-lead reveal">Available for threat surface audits, resilient Linux backend architectures, and production automation workflows.</p>
+    <!-- Humanized & High-Impact Professional Lead -->
+    <p class="contact-lead reveal">
+      Whether you need an <strong>adversarial threat assessment</strong> to uncover blind spots in your infrastructure, <strong>resilient Linux microservices</strong> that stay up when traffic surges, or <strong>autonomous AI pipelines</strong> engineered to eliminate operational drag — let’s architect something <em>built to endure</em>.
+    </p>
 
     <a href="mailto:umairghaffar759@gmail.com" class="big-mail reveal">umairghaffar759@gmail.com</a>
 
@@ -2228,7 +2193,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
             <span>github.com/umairs759</span>
           </a>
           <a href="https://www.linkedin.com/in/umairs759" target="_blank" rel="noopener" class="c-social">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/></svg>
+            <svg viewBox="0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0h.003z"/></svg>
             <span>linkedin.com/in/umairs759</span>
           </a>
         </div>
@@ -2340,8 +2305,18 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
 
   document.getElementById('year').textContent = new Date().getFullYear();
 
+  /* Fallback check for trading bot image */
+  var tbImg = document.getElementById('tradingBotImg');
+  if(tbImg){
+    tbImg.addEventListener('error', function(){
+      if(this.src.indexOf('tradigbotpic.jpg') !== -1){
+        this.src = 'tradingbotpic.png';
+      }
+    });
+  }
+
   /* ============================================================
-     1 · THREE.JS INTERACTIVE 3D SCENE (Device-Optimized)
+     1 · THREE.JS INTERACTIVE 3D SCENE (Default to Gold Theme)
      ============================================================ */
   var canvas = document.getElementById('webgl-bg');
   var scene, camera, renderer, particles, geometry, material;
@@ -2370,7 +2345,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('scale', new THREE.BufferAttribute(scales, 1));
 
-    // Dynamic material color matching the active theme
+    // Material color matching the active theme (Defaults to Champagne Gold #E9B654)
     var color = getComputedStyle(document.documentElement).getPropertyValue('--acid').trim() || '#E9B654';
 
     material = new THREE.PointsMaterial({
@@ -2426,7 +2401,7 @@ body.loaded .hero-title .l:nth-of-type(2)>span{animation-delay:.22s}
   window.addEventListener('load', init3D);
 
   /* ============================================================
-     2 · THEME SWITCHER CONTROLLER
+     2 · THEME SWITCHER CONTROLLER (Champagne Gold Default)
      ============================================================ */
   var themeButtons = document.querySelectorAll('.theme-dot');
   themeButtons.forEach(function(btn){
