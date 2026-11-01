@@ -2555,9 +2555,13 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
   background:rgba(8,9,12,.85);border:1px solid var(--acid-line);
   padding:.14rem .5rem;border-radius:99px;
 }
-/* pause everything while off-screen (the JS toggles .is-live) */
-.radar-hud:not(.is-live) .radar-sweep,
-.radar-hud:not(.is-live) .radar-target i{animation-play-state:paused}
+/* Always active radar sweep and target blips */
+.radar-sweep{
+  animation: radarSpin 3.5s linear infinite !important;
+}
+.radar-target i{
+  animation: radarBlip 2s ease-in-out infinite !important;
+}
 @media (max-width:520px){
   .radar-target b{display:none}
   .radar-target.warn b{display:block}
@@ -2569,32 +2573,67 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
 .rm .radar-sweep,.rm .radar-target i{animation:none}
 .rm .radar-sweep{transform:rotate(40deg)}
 
-/* ---- 30b · animated border-beam on project previews ---- */
-@property --beam-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
-.viz::before{
-  content:'';position:absolute;inset:0;border-radius:inherit;padding:1.5px;
-  background:conic-gradient(from var(--beam-angle),
-    transparent 0 290deg,
-    rgba(229,169,60,.9) 345deg,
-    #FFE8A3 359deg,
-    transparent 360deg);
-  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  -webkit-mask-composite:xor;
-  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
-  mask-composite:exclude;
-  opacity:0;
-  transition:opacity .4s ease;
-  pointer-events:none;
-  z-index:4;
-  animation:beamSpin 4.5s linear infinite;
-  animation-play-state:paused;
+/* ---- 30b · Cross-browser Animated Laser Border-Beam ---- */
+.project .viz {
+  position: relative;
+  border: 1px solid var(--line-mid);
+  border-radius: 16px;
+  overflow: hidden;
+  background: linear-gradient(155deg, rgba(18,20,29,0.92), rgba(10,11,16,0.96));
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s ease;
 }
-.viz:hover::before,
-.viz:focus-within::before{opacity:1;animation-play-state:running}
-@keyframes beamSpin{to{--beam-angle:360deg}}
-@media (hover:none){.viz::before{display:none}}
-@media (prefers-reduced-motion:reduce){.viz::before{animation:none}}
-.rm .viz::before{animation:none}
+
+.project .viz::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    transparent 280deg,
+    rgba(229,169,60,.4) 320deg,
+    var(--acid-primary) 350deg,
+    #FFE8A3 360deg
+  );
+  animation: laserRotate 4s linear infinite;
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.project .viz::after {
+  content: '';
+  position: absolute;
+  inset: 1.5px;
+  background: inherit;
+  border-radius: 15px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.project:hover .viz::before {
+  opacity: 1;
+}
+
+.project:hover .viz {
+  border-color: rgba(229,169,60,0.6);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px rgba(229,169,60,0.25);
+}
+
+.project .viz-bar,
+.project .viz-body,
+.project .viz-img-wrap {
+  position: relative;
+  z-index: 3;
+}
+
+@keyframes laserRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
 
 /* ---- 30c · technology tag hover ---- */
 .project .p-meta span{cursor:default}
@@ -2855,7 +2894,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
         <span class="sec-num">03 — Production Engineering</span>
         <h2 class="sec-title">Selected <em>Engineering</em> Systems.</h2>
       </div>
-      <p>Hardened security utilities, autonomous EDR daemons, compliance agents, AI-native business tools, and offline-first commerce.</p>
+      <p>Hardened security utilities, autonomous compliance agents, real-time telemetry, conversational AI, and full-stack systems.</p>
     </div>
 
     <!-- Project 01 — VIXOR -->
@@ -2878,10 +2917,10 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>vixor_scan_dashboard.png</em></div>
-          <div class="viz-img-wrap radar-wrap" role="img" aria-label="Simulated scan demo visualization: an animated radar with decorative target markers. These are not real scan results.">
-            <img src="./VIXOR — Autonomous Cyber Intelligence & Attack Surface Analyzer.jpg" alt="VIXOR Dashboard" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.35;">
-          <div class="radar-hud" id="vixorRadar">
+          <div class="viz-bar"><i></i><i></i><i></i><em>vixor_scan_dashboard.png</em></div>
+          <div class="viz-img-wrap radar-wrap" role="img" aria-label="VIXOR Dashboard Radar">
+            <img src="./VIXOR — Autonomous Cyber Intelligence & Attack Surface Analyzer.jpg" alt="VIXOR Dashboard" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.32;">
+            <div class="radar-hud" id="vixorRadar">
               <div class="radar-grid-bg"></div>
               <div class="radar-ring r1"></div>
               <div class="radar-ring r2"></div>
@@ -2948,7 +2987,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>edr_containment_terminal.png</em></div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>edr_containment_terminal.png</em></div>
           <div class="viz-img-wrap">
             <img src="./auto-incident-responder — Linux Endpoint EDR.jpg" alt="auto-incident-responder Dashboard" loading="lazy">
             <div class="viz-overlay-fade"></div>
@@ -2999,7 +3038,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>ghost_audit_pipeline.png</em></div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>ghost_audit_pipeline.png</em></div>
           <div class="viz-img-wrap">
             <img src="./Ghost Data Auditor.jpg" alt="Ghost Data Auditor Dashboard" loading="lazy">
             <div class="viz-overlay-fade"></div>
@@ -3053,8 +3092,9 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>whatsapp_agent_session.png</em></div>
-          <div class="viz-img-wrap img-missing" data-fb="WHATSAPP AGENT LIVE INTERFACE">
+          <div class="viz-bar"><i></i><i></i><i></i><em>whatsapp_agent_session.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="./whatsapp.png" alt="LocalBiz AI WhatsApp Agent live interface" loading="lazy">
             <div class="viz-overlay-fade"></div>
           </div>
           <div class="viz-body">
@@ -3133,7 +3173,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>higgsfield_genai_studio.png</em></div>
+          <div class="viz-bar"><i></i><i></i><i></i><em>higgsfield_genai_studio.png</em></div>
           <div class="viz-img-wrap">
             <img src="./HIGGSFIELD-AI-OPEN-SOURCE.jpg" alt="HIGGSFIELD GenAI Studio" loading="lazy">
             <div class="viz-overlay-fade"></div>
@@ -3155,10 +3195,38 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
     </article>
 
-    <!-- Project 06 — RetailFlow-POS -->
+    <!-- Project 06 — BrandPulse AI Telemetry -->
     <article class="project flip reveal">
       <div class="p-body">
-        <div class="p-index">Project 06 — Offline-First POS</div>
+        <div class="p-index">Project 06 — Sentiment Telemetry</div>
+        <h3 class="p-title">BrandPulse AI Telemetry</h3>
+        <p class="p-desc">
+          Automates sentiment audit and brand protection for local food chains and retail outlets. Connects scattered review sources across Google Maps and social portals, parses nuance with local context awareness, and drafts humanized resolution responses before customer dissatisfaction impacts public rating thresholds.
+        </p>
+        <div class="p-meta">
+          <span>Python</span><span>FastAPI</span><span>Sentiment NLP</span>
+          <span>Brand Defense</span><span>Automated Feedback</span>
+        </div>
+        <a href="https://github.com/umairs759/brandpulse-ai-agent" target="_blank" rel="noopener" class="p-link">
+          Explore Repository
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        </a>
+      </div>
+      <div class="p-visual">
+        <div class="viz" data-viz>
+          <div class="viz-bar"><i></i><i></i><i></i><em>brandpulse_dashboard.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="./brandpulse.png" alt="BrandPulse sentiment analytics dashboard" loading="lazy">
+            <div class="viz-overlay-fade"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 07 — RetailFlow-POS -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-index">Project 07 — Offline-First POS</div>
         <h3 class="p-title">RetailFlow-POS (Offline-First)</h3>
         <p class="p-desc">
           Brick-and-mortar point-of-sale for environments prone to sudden internet outages. Zero subscription fees, zero external server dependencies. Runs completely client-side with instant billing, ledger credit-book tracking (Khata), inventory reconciliation, and direct-to-WhatsApp digital receipt dispatching.
@@ -3174,8 +3242,9 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>retailflow_checkout_ui.png</em></div>
-          <div class="viz-img-wrap img-missing" data-fb="RETAILFLOW CHECKOUT CONSOLE">
+          <div class="viz-bar"><i></i><i></i><i></i><em>retailflow_checkout_ui.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="./retailflow.png" alt="RetailFlow-POS checkout console" loading="lazy">
             <div class="viz-overlay-fade"></div>
           </div>
           <div class="viz-body">
@@ -3195,10 +3264,10 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
     </article>
 
-    <!-- Project 07 — Bella's Fast Food -->
-    <article class="project reveal">
+    <!-- Project 08 — Bella's Fast Food -->
+    <article class="project flip reveal">
       <div class="p-body">
-        <div class="p-index">Project 07 — 3D Storefront</div>
+        <div class="p-index">Project 08 — 3D Storefront</div>
         <h3 class="p-title">Bella's Fast Food — 3D Storefront &amp; Reservation Engine</h3>
         <p class="p-desc">
           High-conversion digital storefront with a Three.js / WebGL 3D experience, dynamic table layout engine, and one-tap WhatsApp order routing. Built for real-world restaurant operations with reservation and order management.
@@ -3219,8 +3288,9 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       </div>
       <div class="p-visual">
         <div class="viz" data-viz>
-          <div class="viz-bar"><i></i><i></i><i></i><i></i><em>bellas_3d_storefront.png</em></div>
-          <div class="viz-img-wrap img-missing" data-fb="BELLA'S 3D STOREFRONT">
+          <div class="viz-bar"><i></i><i></i><i></i><em>bellas_3d_storefront.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="./bellas-3d.png" alt="Bella's Fast Food Haripur 3D digital storefront" loading="lazy">
             <div class="viz-overlay-fade"></div>
           </div>
           <div class="viz-body">
@@ -3234,6 +3304,60 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
                 <div class="cube-face">WHATSAPP</div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 09 — Algorithmic Risk-Capped Trading Bots -->
+    <article class="project reveal">
+      <div class="p-body">
+        <div class="p-index">Project 09 — Quantitative Execution</div>
+        <h3 class="p-title">Algorithmic Risk-Capped Trading Bots</h3>
+        <p class="p-desc">
+          Automated Expert Advisors (EAs) and quantitative execution monitors for MetaTrader 5 with algorithmic risk governance: hard-coded 2% drawdown limits, dynamic position sizing, and slippage filters. Phase-1 architecture successfully validated, completed, and shipped/gifted to a fellow developer.
+        </p>
+        <div class="p-meta">
+          <span>MetaTrader 5</span><span>MQL5</span>
+          <span>Python</span><span>Quantitative Risk</span><span>Transferred / Shipped</span>
+        </div>
+        <span class="p-link" style="opacity:.8; cursor:default;">
+          Architecture Complete · Gifted to Developer
+        </span>
+      </div>
+      <div class="p-visual">
+        <div class="viz" data-viz>
+          <div class="viz-bar"><i></i><i></i><i></i><em>tradingbotpic.jpg</em></div>
+          <div class="viz-img-wrap">
+            <img src="./tradingbotpic.jpg" alt="Algorithmic Risk-Capped Trading Bot Dashboard" loading="lazy">
+            <div class="viz-overlay-fade"></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Project 10 — Sports Analytics & Organic Distribution Engine -->
+    <article class="project flip reveal">
+      <div class="p-body">
+        <div class="p-index">Project 10 — Data-Driven Distribution</div>
+        <h3 class="p-title">Sports Analytics &amp; Organic Distribution Engine</h3>
+        <p class="p-desc">
+          Diagnosed severe indexing stagnation on a sports entertainment publication. Restructured URL taxonomy, rectified internal crawl budget waste, and rewrote programmatic metadata schemas to match high-velocity search queries during live fixtures. Catapulted impressions from dormant levels to 230K+ verified organic views in 7 days without ad spend.
+        </p>
+        <div class="p-meta">
+          <span>Search Architecture</span><span>Metadata Engineering</span>
+          <span>Crawl Optimization</span><span>Organic Growth Strategy</span>
+        </div>
+        <span class="p-link" style="opacity:.8; cursor:default;">
+          Verified Growth Case Study (230K+ Views)
+        </span>
+      </div>
+      <div class="p-visual">
+        <div class="viz" data-viz>
+          <div class="viz-bar"><i></i><i></i><i></i><em>search_console_performance_spike.png</em></div>
+          <div class="viz-img-wrap">
+            <img src="./growth-analytics.png" alt="Google Search Console 230K organic impressions spike" loading="lazy">
+            <div class="viz-overlay-fade"></div>
           </div>
         </div>
       </div>
@@ -3765,7 +3889,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       var rect = null;
       var isCap = el.classList.contains('cap');
       var isPortrait = el.classList.contains('portrait-frame');
-      var max = isCap ? 2.6 : (isPortrait ? 9 : 7.5);
+      var max = isCap ? 4 : (isPortrait ? 12 : 11);
 
       el.addEventListener('pointerenter', function () {
         rect = el.getBoundingClientRect();
@@ -3780,7 +3904,7 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
         el.style.setProperty('--my', (fy * 100).toFixed(1) + '%');
         var ry = (fx - 0.5) * 2 * max;
         var rx = -(fy - 0.5) * 2 * max;
-        el.style.transform = 'perspective(1100px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg)';
+        el.style.transform = 'perspective(1000px) rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) scale3d(1.02, 1.02, 1.02)';
       });
       el.addEventListener('pointerleave', function () {
         rect = null;
@@ -4534,12 +4658,14 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
     place(0.5);                                             /* static position until/unless animated */
     if (reduced) return;
 
+    inView = true;
+    start();
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (en) {
         en.forEach(function (e) { inView = e.isIntersecting; if (inView) start(); else stop(); });
-      }, { threshold: 0.15 });
+      }, { threshold: 0.05 });
       io.observe(svg);
-    } else { inView = true; start(); }
+    }
 
     doc.addEventListener('visibilitychange', function () {
       if (doc.hidden) stop(); else start();                 /* resumes only if still in view */
@@ -4602,11 +4728,13 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
       { group: 'Navigate', label: 'Recognition', key: '04', icon: 'jump', run: function () { go('#recognition'); } },
       { group: 'Navigate', label: 'Contact', key: '05', icon: 'mail', run: function () { go('#contact'); } },
       { group: 'Projects', label: 'VIXOR — Cyber Intelligence', icon: 'link', run: function () { openUrl('https://github.com/umairs759/vixor-autonomous-cyber-intel'); } },
-      { group: 'Projects', label: 'Ghost Data Auditor', icon: 'link', run: function () { openUrl('https://github.com/umairs759/Ghost-Data-Auditor'); } },
-      { group: 'Projects', label: 'HIGGSFIELD-AI-OPEN-SOURCE', icon: 'link', run: function () { openUrl('https://github.com/umairs759/HIGGSFIELD-AI-OPEN-SOURCE'); } },
-      { group: 'Projects', label: 'LocalBiz AI WhatsApp Agent', icon: 'link', run: function () { openUrl('https://github.com/umairs759/LocalBiz-AI-WhatsApp-Agent'); } },
       { group: 'Projects', label: 'auto-incident-responder (EDR)', icon: 'link', run: function () { openUrl('https://github.com/umairs759/auto-incident-responder'); } },
+      { group: 'Projects', label: 'Ghost Data Auditor', icon: 'link', run: function () { openUrl('https://github.com/umairs759/Ghost-Data-Auditor'); } },
+      { group: 'Projects', label: 'LocalBiz AI WhatsApp Agent', icon: 'link', run: function () { openUrl('https://github.com/umairs759/LocalBiz-AI-WhatsApp-Agent'); } },
+      { group: 'Projects', label: 'HIGGSFIELD-AI-OPEN-SOURCE', icon: 'link', run: function () { openUrl('https://github.com/umairs759/HIGGSFIELD-AI-OPEN-SOURCE'); } },
+      { group: 'Projects', label: 'BrandPulse AI Telemetry', icon: 'link', run: function () { openUrl('https://github.com/umairs759/brandpulse-ai-agent'); } },
       { group: 'Projects', label: 'RetailFlow-POS', icon: 'link', run: function () { openUrl('https://github.com/umairs759/RetailFlow-POS'); } },
+      { group: 'Projects', label: "Bella's Fast Food 3D", icon: 'link', run: function () { openUrl('https://umairs759.github.io/bellas-restaurant-haripur/'); } },
       { group: 'Actions', label: 'Copy email address', key: '⌘C', icon: 'mail', run: copyEmailStatic },
       { group: 'Actions', label: 'Toggle high-contrast mode', key: '⌥H', icon: 'contrast', run: toggleHC },
       { group: 'Actions', label: 'Download resume / CV', key: '⌘D', icon: 'download', run: function () { openUrl('resume.pdf'); } }
@@ -4928,8 +5056,8 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
     var camY = -p * 86 + Math.sin(p * Math.PI * 2) * 24;
     var camX = Math.sin(p * Math.PI * 1.5) * 46;
 
-    camera.position.x += ((camX + mX * 18) - camera.position.x) * 0.045;
-    camera.position.y += ((camY - mY * 12) - camera.position.y) * 0.045;
+    camera.position.x += ((camX + mX * 38) - camera.position.x) * 0.06;
+    camera.position.y += ((camY - mY * 26) - camera.position.y) * 0.06;
     camera.position.z += (camZ - camera.position.z) * 0.06;
     camera.lookAt(mX * 12, (mY * 7) - p * 34, camera.position.z - 380);
     camera.rotation.z += ((mX * 0.035 + p * 0.06) - camera.rotation.z) * 0.05;
@@ -5072,3 +5200,5 @@ html.hc .tl-desc,html.hc .p-desc,html.hc .cap-desc,html.hc .hero-desc{color:#D8D
 </html>
 
 
+
+  
