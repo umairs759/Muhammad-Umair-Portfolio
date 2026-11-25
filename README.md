@@ -4,7 +4,7 @@
 
 **An elite dark-themed personal portfolio engineered with a cybersecurity-first aesthetic — built completely from scratch using pure HTML5, CSS3 (custom design system), and vanilla JavaScript.**
 
-[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-umairs759.github.io-E8B04B?style=for-the-badge&logo=githubpages&logoColor=08080A)]([https://umairs759.github.io/Muhammad-Umair-Portfolio/](https://muhammadumairs.cv/))
+[![Live Portfolio](https://img.shields.io/badge/Live_Portfolio-muhammadumairs.cv-E8B04B?style=for-the-badge&logo=githubpages&logoColor=08080A)](https://muhammadumairs.cv/)
 [![Tech Stack](https://img.shields.io/badge/Stack-HTML5_·_CSS3_·_JS-08080A?style=for-the-badge&logo=javascript&logoColor=E8B04B)](#-built-with)
 [![License](https://img.shields.io/badge/License-MIT-4ADE80?style=for-the-badge)](#-license)
 [![Status](https://img.shields.io/badge/Status-Actively_Maintained-E8B04B?style=for-the-badge)](#)
