@@ -42,8 +42,6 @@ The design language is intentionally sharp: a near-black canvas, a single acid-l
 ## 🌐 Live Preview
 
 **👉 [https://muhammadumairs.cv/](https://muhammadumairs.cv/)**
-
-Deployed automatically via GitHub Pages from the `main` branch with custom domain (`muhammadumairs.cv`) configured.
 ---
 
 ## 🌟 Key Features
